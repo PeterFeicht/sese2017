@@ -1,0 +1,132 @@
+\documentclass{beamer}
+\setbeamertemplate{navigation symbols}{} % eliminate navigation bar
+\usetheme{CambridgeUS}
+
+\usefonttheme{structurebold}
+% Arch Linux Color Theme
+\definecolor{arch}{RGB}{23,147,209}
+\usecolortheme[named=arch]{structure}
+\usecolortheme{whale}
+\setbeamercolor{frametitle}{bg=arch!80!black}
+\setbeamercolor{title}{bg=arch!90!black}
+
+%% SET BEAMER TEMPLATE
+%\setbeamertemplate{headline}
+
+\usepackage{lmodern}
+\usepackage[latin1]{inputenc}
+\usepackage[american]{babel}
+
+\usepackage{graphicx}
+
+%\usepackage{listings}
+%\lstset{language=Java,
+%  basicstyle=\ttfamily\small,
+%  tabsize=2}
+
+\newcommand{\backupbegin}{
+  \newcounter{finalframe}
+  \setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \setcounter{framenumber}{\value{finalframe}}
+}
+
+\setbeamercovered{transparent=20}
+
+
+%% META INFORMATION ABOUT DOCUMENT
+% \title[short]{long}
+% short argument is used in places where there is little space
+% long is used on the title slide
+
+\title[Refactoring]{Automated Refactoring - A Taxonomy}
+\subtitle{Seminar in Software Engineering}
+\institute[]{Institute for Software Systems Engineering\\Johannes Kepler University Linz}
+
+\subject{Automated Refactoring}
+
+\pgfdeclareimage[height=0.5cm]{isse-logo}{bilder/isse}
+\logo{\pgfuseimage{isse-logo}}
+
+\author[Feichtinger, Kritzinger]{Peter Feichtinger\texorpdfstring{\\}{, }Lisa Kritzinger} % Variante: \and
+
+\date{25. April 2017}
+
+
+\begin{document}
+
+%% TITLE PAGE
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% for longer presentations table of contents is useful
+\begin{frame}
+  \frametitle{Outline} 
+  \tableofcontents          % optional: [pausesections]
+\end{frame}
+
+
+\section{Introduction}  % always defined outside a frame, optional short argument
+
+\begin{frame}{Context}
+  \begin{itemize}
+    \item Module 2 of CDL MEVSS in cooperation with KEBA
+      
+      Feature-Oriented Development and Configuration-Aware Program Analysis of Industrial Software Ecosystems
+    \pause
+    \item PhD work by Florian Angerer
+    \begin{itemize}
+      \item System Dependence Graph (SDG), encodes control and data dependencies in a program
+      \pause
+      \item Conditional System Dependence Graph (CSDG), also encodes configuration information
+      \pause
+      \item Global and instance-based
+      \item Graphs can be very large
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%\begin{frame}[fragile]
+%  \frametitle{An Algorithm For Finding Prime Numbers.}
+%  
+%\begin{semiverbatim}
+%\uncover<1->{\alert<0>{int main(void) \{}}
+%\uncover<1->{\alert<1>{  \alert<4>{std::}vector<bool> is_prime (100, true);}}
+%\uncover<1->{\alert<1>{  for(int i = 2; i < 100; i++) \{}}
+%\uncover<2->{\alert<2>{    if(is_prime[i]) \{}}
+%\uncover<3->{\alert<3>{      \alert<4>{std::}cout << i << " ";}}
+%\uncover<3->{\alert<3>{      for(int j = i; j < 100; is_prime[j] = false, j+=i);}}
+%\uncover<2->{\alert<2>{    \}}}
+%\uncover<1->{\alert<1>{  \}}}
+%\uncover<1->{\alert<0>{  return 0;}}
+%\uncover<1->{\alert<0>{\}}}
+%\end{semiverbatim}
+%
+%  \visible<4->{Note the use of \alert{\texttt{std::}}.}
+%\end{frame}
+
+
+\appendix
+\section*{\appendixname}
+
+\begin{frame}{Further Reading}
+  \begin{thebibliography}{10}
+    \beamertemplatearticlebibitems
+  
+    \bibitem{csdg}
+      Angerer, Prähofer, Lettner, Grimmer, Grünbacher
+      \newblock Identifying Inactive Code in Product Lines with Configuration-Aware System Dependence Graphs.
+      \newblock {\em Proceedings of the 18th International Software Product Line Conference}, Florence, Italy, pp. 
+      52-61, 2014.
+    
+    \bibitem{cacia}
+      Angerer, Grimmer, Prähofer, Grünbacher
+      \newblock Configuration-Aware Change Impact Analysis.
+      \newblock {\em Proceedings of the 30th IEEE/ACM International Conference on Automated Software Engineering}, 
+      Lincoln, Nebraska, USA, pp. 385-395, 2015. 
+  \end{thebibliography}
+\end{frame}
+
+\end{document}
