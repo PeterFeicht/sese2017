@@ -66,7 +66,22 @@ Software restructuring, automatic refactoring, tool support, software evolution.
 
 \section{Introduction}
 
-Text \cite{polymorphism}
+Refactoring is the process of restructuring a software system without changing its semantics. It is used to increase 
+readability and maintainability of software, reduce its complexity, or change the architecture of a system. Refactoring 
+is essential in software evolution, because as a system is adapted to new requirements it inevitably becomes more 
+complex and drifts away from its original design. This makes maintenance more difficult and reduces the software 
+quality. Refactoring can then help to bring the system back to its original design and into a more maintainable state, 
+improving code quality in the process.
+
+However, manual refactoring without any tool support can be error-prone and time-consuming. There are various tools 
+available for supporting elementary refactorings like renaming a variable or introducing an additional parameter to a 
+function, often built into the used \emph{Integrated Development Environment} (IDE) itself. But even with tool support, 
+manual refactoring can still be too complicated or just tedious, and tool support for automating refactoring tasks is 
+desirable in a number of cases.
+
+In this article we're going to highlight some recent and not-so-recent contributions in the field of automatic 
+refactoring, ranging from simple tasks like making code more compact \cite{sparta}, to more complicated tasks like 
+introducing object-orientation into a C codebase \cite{cpp}.
 
 
 \section{Background}
