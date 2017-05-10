@@ -42,11 +42,11 @@
 
 \begin{abstract}
 Refactoring, the restructuring of a software system without changing its semantics, is essential in software evolution. 
-Manual refactoring can be time-consuming and error-prone, so tool support is desirable when making large changes. In 
-this article, we will explore a number of publications on automating different refactoring tasks, from just making code 
-more compact to introducing objects into a C codebase.
+Manual refactoring can be time-consuming and error-prone, so tool support is desirable when making large changes. In this article, we will explore a number of publications on automating different refactoring tasks, from just making code more compact to introducing objects into a C codebase.\pf{Should the abstract be longer?}
 
-\pf{Should the abstract be longer?}
+Additionally, we will provide comparisons which will show the advantages and disadvantages of the different approaches, regarding the performance of the software after refactoring, the applicability of a certain approach or the simplicity of the application of an approach.
+
+
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -81,13 +81,26 @@ desirable in a number of cases.
 
 In this article we're going to highlight some recent and not-so-recent contributions in the field of automatic 
 refactoring, ranging from simple tasks like making code more compact \cite{sparta}, to more complicated tasks like 
-introducing object-orientation into a C codebase \cite{cpp}.
-
+introducing object-orientation into a C codebase \cite{cpp}. We will also investigate the benefit from refactoring a software through replacing conditionals by using polymorphism \cite{polymorphism} as well as the approach of using design differencing for automated refactoring \cite{design-diff}.
 
 \section{Background}
 
-Text
+\lk{do we need this section?}
 
+\section{Automated Refactoring Approaches}
+\lk{TODO short introduction}
+
+\subsection{Restructuring Legacy C Code into C++}
+\lk{PF: TODO definition and comparison}
+
+\subsection{Conditionals vs Polymorphism}
+\lk{TODO definition and comparison}
+
+\subsection{Design Differencing}
+\lk{TODO definition and comparison}
+
+\subsection{Spartanizer}
+\lk{PF: TODO definition and comparison}
 
 \section{Conclusion}
 
