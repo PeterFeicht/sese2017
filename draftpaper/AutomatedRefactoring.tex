@@ -1,6 +1,9 @@
 \documentclass[conference,compsoc,a4paper]{IEEEtran}
 
 \usepackage[utf8]{inputenc}
+\usepackage[american]{babel}
+\usepackage[babel]{csquotes}
+
 \usepackage[final]{pdfpages}
 \usepackage[cmex10]{amsmath}
 \usepackage{amssymb}
@@ -160,9 +163,22 @@ phases.
 
 \lk{TODO definition and comparison}
 
-\subsection{Spartanizer}
+\subsection{The Spartanizer}
 
-\lk{PF: TODO definition and comparison}
+This is a recent paper by Yossi Gil and Matteo Orrù, which was presented at this year's SANER. It describes their tool 
+called \emph{The Spartanizer}, which is an Eclipse plugin for automatic refactoring of Java code. The tool is still 
+actively being developed on GitHub\footnote{\url{https://github.com/SpartanRefactoring/Main}} and has quite a number of 
+contributors.
+
+The supported refactorings are implemented in classes inheriting from the abstract \code{Tipper} class. A tipper 
+represents a rewrite rule that can be applied to a specific type of AST node. Multiple tippers can be applied in 
+succession to the whole project.
+
+After each modification to a source file, it is parsed and available suggestions are displayed as info markers on the 
+source code. From there, it is possible to apply a refactoring to a selected scope (method only, the whole file, etc).
+
+This paper is unique in our list, because it describes a tool that is actively maintained and can be used in 
+production, a tool that \enquote{really exists} one could say.
 
 
 \section{Conclusion}
