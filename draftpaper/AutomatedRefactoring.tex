@@ -29,6 +29,8 @@
 \newcommand{\lk}[1]{\textcolor{orange}{[LK] #1}}
 \newcommand{\pf}[1]{\textcolor{green}{[PF] #1}}
 
+\newcommand{\JDEvAn}{\mbox{JDEvAn}\xspace}
+
 
 \begin{document}
 
@@ -192,18 +194,18 @@ For this method the programmer creates a desired design for the software. This d
 software design and additionally on the understanding of how the software may be required to evolve. The software is 
 then refactored using that design. The resulting software code has the same behavior as before the refactoring.
 
-This method is supported by some tools, two of them are JDEvAn (Java Design Evolution and Analysis) \cite{JDEvAn} and 
+This method is supported by some tools, two of them are \JDEvAn (Java Design Evolution and Analysis) \cite{JDEvAn} and 
 Code-Imp (Combinatorial Optimization for Design Improvement) \cite{DBLP:journals/jss/OKeeffeC08, 
 DBLP:conf/icse/MoghadamC11}.
 
 \subsubsection{JDEvAn}
 
-JDEvAn is developed at the University of Alberta. It is an Eclipse plugin which analyzes a software system's 
+\JDEvAn is developed at the University of Alberta. It is an Eclipse plugin which analyzes a software system's 
 design-evolution history and provides information about the system's history. The plugin contains a Java fact 
 extractor, a query-based change-pattern detection module, and a design differencing algorithm. The Java fact extractor 
 extracts a UML logical design model from Java source code. The design differencing algorithm uses lexical and 
 structural similarity to automatically recover differences between one version of a system and the next \cite{Xing2007}.
-JDEvAn provides a refactoring-detection module which categorizes detected differences as refactoring instances 
+\JDEvAn provides a refactoring-detection module which categorizes detected differences as refactoring instances 
 \cite{DBLP:conf/wcre/XingS06}.
 
 The process initially extracts two UML models from the source code corresponding to two versions of a Java system. 
@@ -220,7 +222,7 @@ The refactoring process of Code-Imp is driven by a search technique. The search 
 hill climbing, where the next refactoring to be applied is the one that produces the best improvement in the so called 
 fitness function, a function which measures how good the program is.
 
-The benefit of refactoring software using tools like JDEvAn and Code-Imp is that it enables automated refactoring 
+The benefit of refactoring software using tools like \JDEvAn and Code-Imp is that it enables automated refactoring 
 towards a high-quality desired design, and hence improves maintenance productivity. The efficacy of the approach was 
 additionally proven by \cite{design-diff}. Their findings were that the original program could be refactored to the 
 desired design with an accuracy of over 90\%, hence	demonstrating the viability of automated refactoring using design 
