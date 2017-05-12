@@ -9,6 +9,18 @@
 \usepackage{xspace}
 \usepackage{balance}
 
+\usepackage[
+  pdflang=en,
+  colorlinks=true,
+  unicode=true,
+  pdfstartview=,
+  allcolors=black
+]{hyperref}
+\hypersetup{
+  pdftitle={Automated Refactoring},
+  pdfauthor={Lisa Maria Kritzinger, Peter Feichtinger}
+}
+
 \newcommand{\code}[1]{{\small\ttfamily #1}}
 
 \newcommand{\lk}[1]{\textcolor{orange}{[LK] #1}}
@@ -22,12 +34,12 @@
   \IEEEauthorblockN{Lisa Maria Kritzinger}
   \IEEEauthorblockA{Johannes Kepler University Linz\\
     1255353\\
-    Email: kritzinger@gmx.net}
+    Email: \href{mailto:kritzinger@gmx.net}{kritzinger@gmx.net}}
   \and
   \IEEEauthorblockN{Peter Feichtinger}
   \IEEEauthorblockA{Johannes Kepler University Linz\\
     1056451\\
-    Email: shippo@gmx.at}
+    Email: \href{mailto:shippo@gmx.at}{shippo@gmx.at}}
 }
 
 % make the title area
