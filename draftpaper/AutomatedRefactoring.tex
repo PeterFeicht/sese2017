@@ -17,6 +17,8 @@
 \usepackage{xspace}
 \usepackage{balance}
 
+\newcommand{\code}[1]{{\small\ttfamily #1}}
+
 \newcommand{\lk}[1]{\textcolor{orange}{\textbf{[LK] #1}}}
 \newcommand{\pf}[1]{\textcolor{green}{\textbf{[PF] #1}}}
 
@@ -96,7 +98,53 @@ introducing object-orientation into a C codebase \cite{cpp}.
 
 \subsection{Restructuring Legacy C Code into C++}
 
-\lk{PF: TODO definition and comparison}
+This is an older paper from 1999 by Richard Fanta and Václav Rajlich of \emph{Wayne State University} in Detroit, MI, 
+USA~\cite{cpp}. They did a case study on the Mosaic browser, an early web browser implemented in C. Their approach uses 
+a number of discrete refactorings. By combining those, a C \code{struct} or a number of related variables can be 
+transformed into a C++ class, with related functions becoming member functions of that class.
+
+The following two sections will briefly explain the implemented refactorings and their use in the whole restructuring 
+process, respectively.
+
+\subsubsection{Refactoring Tools}
+
+This section briefly summarizes the implemented tools used in the restructuring process. Each tool has specific 
+restrictions placed on when it can be applied, which simplifies the tool and makes sure the code is in a consistent 
+state after its application.
+
+The \textbf{variable insertion} tool inserts a selected variable into a class as a static or non-static member. The 
+programmer needs to specify the variable which should be inserted, as well as the class---for a static variable---or 
+the instance---for a non-static variable---it should be inserted into.
+
+Another tool \textbf{makes access to a non-local variable explicit} by introducing an explicit parameter for the 
+accessed variable, redirecting all accesses inside the function to that parameter, and finally adding an actual 
+parameter for the variable at every call of the function. The same is also possible in reverse to \textbf{make access 
+implicit}.
+
+To \textbf{add a parameter} to a function, another tool is used that adds the parameter to the formal parameter list. 
+After selecting the instance to be passed as the new parameter for each call, the tool inserts that instance as a 
+parameter to the call.
+
+Finally there is a tool for \textbf{changing the access specifier of a class member}, which just checks that a certain 
+change doesn't make the code inconsistent.
+
+\subsubsection{Restructuring Scenario}
+
+The refactoring tools described in the previous section are used at various steps in the whole process. The complete 
+restructuring process thus involves both actions by a human as well as use of the tools, and is divided into three 
+phases.
+
+\begin{enumerate}
+  \item Data-only classes are created from a number of variables, if necessary. In case there is already a C 
+  \code{struct}, this step can be skipped.
+  
+  \item After creating the desired classes, possible clones are removed. Clones may result from the same domain concept 
+  being implemented at various places in the code.
+  
+  \item Lastly, the user specifies functions which should be added to a class as a member function. These may be 
+  functions that have the target class as a parameter, access it through a global variable, or have individual members 
+  of the target class as parameters.
+\end{enumerate}
 
 \subsection{Conditionals vs Polymorphism}
 
