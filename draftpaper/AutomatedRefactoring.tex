@@ -157,11 +157,40 @@ phases.
 
 \subsection{Conditionals vs Polymorphism}
 
-\lk{TODO definition and comparison}
+The argument that the cost of refactoring cannot be afforded is often mentioned by programmers, because refactoring usually has an negative impact on the performance.
+
+This trade-off has been investigated by \cite{Demeyer2002} by comparing the performance of a program which contains large conditionals against one where the conditionals were replaced by polymorphic method calls. This comparance showed that C++ programs refactored this way perform faster than their non-refactored counterparts.
+
+Tthis approach to refactor a software is mostly suitable for software which contains a large number of conditional logic and where performance matters. It is not always possible, or desirable to replace conditional logic by polymorphism. But when the some conditional logic reappears in other pieces of code it becomes a maintenance problem, because one risks modifying one condition without adapting the other part as well. 
+
+If a client is testing the typeof a certain provider objact, it can be refactored by moving code from the client to the provider. The special case that a client test whether a provider is null or empty can be refactored by introducing a Null object \cite{nullobject}.
+
+The case that an object is testing an attribute serving as some kind of typ-tag can be refactored by by creating a new subclass for each leg of the conditional
+and moving the code as a polymorphic method in the subclass. If an object is changing its state dynamically it can be refactored by introducing a State object \cite{designpatter}.
+
+An other case are described by clients which test the type of a series of objects before performing a certain action. This can be refactored by a central registration mechanism, which acts as a mediator between objects providing services and clients requesting services.
+
+Although this method is easy to use, there is no tool support to automate the process. Therefore it is difficult to motivate programmers to make use of this method. 
 
 \subsection{Design Differencing}
 
-\lk{TODO definition and comparison}
+An automated refactoring approach is described in \cite{design-diff}. This novel refactoring approach that refactors a program based both on its desired design and on	its source code.
+For this method the programmer creates a desired design for the software. This design shell be based on the current software design and additionally on on the understanding of how the software may be required to evolve. The software is then refactored using that design. The resulting software code has the same behavior as before the refactoring.
+
+This method is supported by some tools, two of them are JDEvAn (Java Design Evolution and Analysis) \cite{JDEvAn} and Code-Imp (Combinatorial Optimisation for Design Improvement) \cite{2008502} \cite{5313}.
+
+\subsubsection{JDEvAn}
+JDEvAn is developed at the University of Alberta. It is an Eclipse plug-in which analyzes a software system’s design-evolution history and provides information about the system’s history. The plugin contains a Java fact extractor, a query-based change-pattern detection module, and a design differencing algorithm. The Java fact extractor extracts a UML logical design model from Java source code. The design differencing algorithm uses lexical and structural similarity to automatically recover differences between one version of a system and the next \cite{Xing2007}.
+JDEvAn provides a refactoring-detection module which categorizes detected differences as refactoring instances \cite{Xing:2006:RDB:1174510.1174736}.
+
+The process initially extracts two UML models from the source code corresponding to two versions of a Java system. Afterwards the two models are compared and the differences between them are detected. Finally the detected differences are categorized	design-level refactoring instances.
+
+\subsubsection{Code-Imp}
+Code-Imp is developted by \cite{2008502} \cite{5313} \cite{bibid} as a fully automated refactoring framework for automatically improving the design of existing programs. It takes Java source code as input and provides a refactored version of the program as output.
+
+The refactoring process of Code-Imp is driven by a search technique. The search technique is steepest-ascent hill-climbing, where the next refactoring to be applied is the one that produces the best improvement in the so called fitness function, a funtion which measures how good the program is.
+
+The benefit of refactoring software using tools like JDEvAn and Code-Imp is that it enables automated refactoring towards a high-quality desired design, and hence improve maintenance productivity. The eccicacy of the approach was additionally proven by \cite{design-diff}. There findings were that the original program could be refactored to the desired design with an accuracy of over 90\%, hence	demonstrating the viability of automated refactoring using design differencing.
 
 \subsection{The Spartanizer}
 
