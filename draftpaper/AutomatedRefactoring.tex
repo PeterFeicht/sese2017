@@ -192,9 +192,16 @@ motivate programmers to make use of this method.
 
 \subsection{Design Differencing}
 
+\begin{figure}[t!]
+	\centering
+	\includegraphics[width=\linewidth]{figures/designdiff.png}
+	\caption{Automated refactoring process using Design Differencing \cite{design-diff}}
+	\label{fig:designdiff}
+\end{figure}
+
 An automated refactoring approach is described in \cite{design-diff}. This novel refactoring approach refactors a 
 program based both on its desired design and on its source code.
-For this method the programmer creates a desired design for the software. This design shall be based on the current 
+The process of this method is illustrated in Figure \ref{fig:designdiff}. The programmer creates a desired design for the software. This design shall be based on the current 
 software design and additionally on the understanding of how the software may be required to evolve. The software is 
 then refactored using that design. The resulting software code has the same behavior as before the refactoring.
 
