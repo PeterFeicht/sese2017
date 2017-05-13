@@ -141,21 +141,23 @@ This section briefly summarizes the implemented tools used in the restructuring 
 restrictions placed on when it can be applied, which simplifies the tool and makes sure the code is in a consistent 
 state after its application.
 
-The \textbf{variable insertion} tool inserts a selected variable into a class as a static or non-static member. The 
-programmer needs to specify the variable which should be inserted, as well as the class---for a static variable---or 
-the instance---for a non-static variable---it should be inserted into.
-
-Another tool \textbf{makes access to a non-local variable explicit} by introducing an explicit parameter for the 
-accessed variable, redirecting all accesses inside the function to that parameter, and finally adding an actual 
-parameter for the variable at every call of the function. The same is also possible in reverse to \textbf{make access 
-implicit}.
-
-To \textbf{add a parameter} to a function, another tool is used that adds the parameter to the formal parameter list. 
-After selecting the instance to be passed as the new parameter for each call, the tool inserts that instance as a 
-parameter to the call.
-
-Finally there is a tool for \textbf{changing the access specifier of a class member}, which just checks that a certain 
-change doesn't make the code inconsistent.
+\begin{enumerate}
+  \item The \textbf{variable insertion} tool inserts a selected variable into a class as a static or non-static member. 
+  The programmer needs to specify the variable which should be inserted, as well as the class---for a static 
+  variable---or the instance---for a non-static variable---it should be inserted into.
+  
+  \item Another tool \textbf{makes access to a non-local variable explicit} by introducing an explicit parameter for 
+  the accessed variable, redirecting all accesses inside the function to that parameter, and finally adding an actual 
+  parameter for the variable at every call of the function. The same is also possible in reverse to \textbf{make access 
+  implicit}.
+  
+  \item To \textbf{add a parameter} to a function, another tool is used that adds the parameter to the formal parameter 
+  list. After selecting the instance to be passed as the new parameter for each call, the tool inserts that instance as 
+  a parameter to the call.
+  
+  \item Finally there is a tool for \textbf{changing the access specifier of a class member}, which just checks that a 
+  certain change doesn't make the code inconsistent.
+\end{enumerate}
 
 \subsubsection{Restructuring Scenario}
 
