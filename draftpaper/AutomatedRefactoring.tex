@@ -200,7 +200,7 @@ risks modifying one condition without adapting the other part as well.
 There are three variants of complex conditional logic and ways to remove it mentioned and described in 
 \cite{polymorphism}.
 
-\begin{itemize}
+\begin{enumerate}
   \item \textbf{Transform Client Type Checks}
   If a client is testing the type of a certain provider object, it can be refactored by moving code from the client to 
   the provider. The special case that a client tests whether a provider is \code{null} or empty can be refactored by 
@@ -216,7 +216,7 @@ There are three variants of complex conditional logic and ways to remove it ment
   Another case are clients which test the type of a series of objects before performing a certain action. This can be 
   refactored by a central registration mechanism, which acts as a mediator between objects providing services and 
   clients requesting services.
-\end{itemize}
+\end{enumerate}
 
 
 Although this method is easy to use, there is no tool support to automate the process. Therefore it is difficult to 
