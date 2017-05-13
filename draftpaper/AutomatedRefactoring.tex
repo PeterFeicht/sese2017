@@ -312,6 +312,19 @@ system (such as changing the design of the whole system as seen in \autoref{sec:
 There are also different motivations for using automated refactoring, or refactoring in general. One might just want to 
 make code more readable on the one hand, on the other hand the motivation might be that a system requires profound 
 changes in order to make it more maintainable.
+Mens et al.\ identify three steps in the refactoring process \cite{DBLP:conf/iwpse/MensTM03}:
+\begin{enumerate}
+  \item detect when an application should be refactored;
+  \item identify which refactorings should be applied and where; and
+  \item perform the refactorings.
+\end{enumerate}
+
+They also note that of those steps, only the third one is currently well supported by tools. This is still true today, 
+more than 13 years later. We saw that some tools are able to identify where refactorings can be applied, as in the case 
+of the \emph{Spartanizer}, while others need to be guided by the developer.
+
+Determining when a software system has a need for refactoring is supported by tools for the detection of \emph{code 
+smells}, symptoms of poor design and implementation choices \cite{DBLP:books/daglib/0019908}.
 
 
 \section{Conclusion}
