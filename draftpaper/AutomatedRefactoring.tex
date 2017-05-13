@@ -187,7 +187,7 @@ This trade-off has been investigated by Serge Demeyer in 2002 \cite{polymorphism
 program which contains large conditionals against one where the conditionals were replaced by polymorphic method calls. 
 This comparison showed that C++ programs refactored this way perform faster than their non-refactored counterparts.
 
-this approach to refactor a system is mostly suitable for software which contains a large number of conditional logic 
+This approach to refactor a system is mostly suitable for software which contains a large number of conditional logic 
 and where performance matters. It is not always possible, or desirable, to replace conditional logic by polymorphism. 
 But when the same conditional logic reappears in other pieces of code it becomes a maintenance problem, because one 
 risks modifying one condition without adapting the other part as well.
