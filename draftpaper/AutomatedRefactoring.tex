@@ -218,7 +218,6 @@ There are three variants of complex conditional logic and ways to remove it ment
   clients requesting services.
 \end{enumerate}
 
-
 Although this method is easy to use, there is no tool support to automate the process. Therefore it is difficult to 
 motivate programmers to make use of this method.
 
@@ -309,10 +308,17 @@ techniques require more or less interaction from the user, and their scope range
 introducing polymorphism into a class hierarchy as seen in \autoref{sec:polymorphism}) to changes to the whole software 
 system (such as changing the design of the whole system as seen in \autoref{sec:design-diff}).
 
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=\linewidth]{figures/process.png}
+	\caption{Refactoring process in general \cite{DBLP:conf/iwpse/MensTM03}}
+	\label{fig:process}
+\end{figure}
+
 There are also different motivations for using automated refactoring, or refactoring in general. One might just want to 
 make code more readable on the one hand, on the other hand the motivation might be that a system requires profound 
 changes in order to make it more maintainable.
-Mens et al.\ identify three steps in the refactoring process \cite{DBLP:conf/iwpse/MensTM03}:
+Mens et al.\ identify three steps in the refactoring process \cite{DBLP:conf/iwpse/MensTM03} which are also illustrated in \autoref{fig:process}:
 \begin{enumerate}
   \item detect when an application should be refactored;
   \item identify which refactorings should be applied and where; and
