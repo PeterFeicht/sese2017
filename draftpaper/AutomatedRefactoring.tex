@@ -122,7 +122,7 @@ introducing object-orientation into a C codebase \cite{cpp}.
 
 This section will give an overview of each paper by summarizing the main points.
 
-\subsection{Restructuring Legacy C Code into C++}
+\subsection{Restructuring Legacy C Code into C++} \label{sec:cpp}
 
 This is an older paper from 1999 by Richard Fanta and Václav Rajlich of \emph{Wayne State University} in Detroit, MI, 
 USA~\cite{cpp}. They did a case study on the Mosaic browser, an early web browser implemented in C. Their approach uses 
@@ -178,7 +178,7 @@ They selected a subsystem of 3000 lines from the Mosaic codebase for their tests
 encapsulate about 60\% of the code into 12 classes. As an example where clone removal was necessary the give the URL 
 class, which was extracted separately at five different locations.
 
-\subsection{Conditionals vs. Polymorphism}
+\subsection{Conditionals vs. Polymorphism} \label{sec:polymorphism}
 
 The argument that the cost of refactoring cannot be afforded is often made by programmers, because refactoring usually 
 has a negative impact on the performance.
@@ -207,7 +207,7 @@ requesting services.
 Although this method is easy to use, there is no tool support to automate the process. Therefore it is difficult to 
 motivate programmers to make use of this method.
 
-\subsection{Design Differencing}
+\subsection{Design Differencing} \label{sec:design-diff}
 
 \begin{figure}[t]
   \centering
@@ -258,7 +258,7 @@ additionally proven by \cite{design-diff}. Their findings were that the original
 desired design with an accuracy of over 90\%, hence demonstrating the viability of automated refactoring using design 
 differencing.
 
-\subsection{The Spartanizer}
+\subsection{The Spartanizer} \label{sec:sparta}
 
 This is a recent paper by Yossi Gil and Matteo Orrù, which was presented at this year's SANER. It describes their tool 
 called \emph{The Spartanizer} \cite{sparta}, which is an Eclipse plugin for automatic refactoring of Java code. The 
