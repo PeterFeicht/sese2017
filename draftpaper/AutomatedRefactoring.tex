@@ -293,7 +293,25 @@ Something
 
 \section{Conclusion}
 
-Text
+We showed various different approaches to automatic refactoring.
+
+Fanta and Rajlich \cite{cpp} use different refactoring tools in succession, guided by the user, to introduce classes 
+into a C codebase. They require the user to specify which variables should be grouped into a C++ class and to specify 
+which functions should be moved into that class.
+
+Demeyer \cite{polymorphism} showed that in many cases, replacing large conditionals by polymorphism to dispatch between 
+different behaviors doesn't necessarily have an impact on performance and, if it does, then usually a positive one.
+
+Moghadam and Ó Cinnéide \cite{design-diff} show how a software system can be automatically refactored based on a 
+desired design and information extracted from the code. They use two different tools, one to extract the actual design 
+from the software and generate necessary refactorings by comparing it to a desired design, the other to actually apply 
+the generated refactorings to the software system.
+
+Gil and Orrù \cite{sparta} present a tool that can be used to automatically apply a large number of refactorings to 
+(parts of) a system, with the goal to make its code more compact. The tool is integrated into the Eclipse IDE and 
+provides opportunities for the user to apply one  or more refactorings to different parts of the codebase.
+
+% TODO summarize our own parts
 
 
 \bibliographystyle{IEEEtran}
