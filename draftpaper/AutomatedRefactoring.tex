@@ -70,17 +70,15 @@
 
 \begin{abstract}
 Refactoring, the restructuring of a software system without changing its semantics, is essential in software evolution. 
-
-The notion of refactoring has been embraced by many objectoriented software developers as a way to accommodate
-changing requirements. If applied well, refactoring improves the maintainability of the software, but manual refactoring can be time-consuming and error-prone, so tool support is desirable when making large changes. In 
-this article, we will explore a number of publications on automating different refactoring tasks, from just making code 
-more compact to introducing objects into a C codebase.
+The notion of refactoring has been embraced by many object oriented software developers as a way to accommodate
+changing requirements. If applied well, refactoring improves the maintainability of software, but manual refactoring 
+can be time-consuming and error-prone, so tool support is desirable when making large changes. In this article, we will 
+explore a number of publications on automating different refactoring tasks, from just making code more compact to 
+introducing objects into a C codebase.
 
 Additionally, we will provide comparisons which will show the advantages and disadvantages of different approaches, 
 regarding the performance of the software after refactoring, the applicability of a certain approach, or the simplicity 
 of the application of an approach.
-
-
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -123,7 +121,9 @@ introducing object-orientation into a C codebase \cite{cpp}.
 \section{Automated Refactoring Approaches}
 
 There are many refactoring tools available, most of which focus on performing specific refactorings as requested by the
-developer, other tools are based on Serach-Based Refactoring. Although there are already many tools for software refactoring, there are still techniques without tool support. The following section will give an overview of some papers which deals which describe some techniques and/or tools by summarizing the main points.
+developer, other tools are based on search-based refactoring. Although there are already many tools for software 
+refactoring, there are still techniques without tool support. The following section will give an overview of some 
+papers which describe some techniques and tools by summarizing the main points.
 
 \subsection{Restructuring Legacy C Code into C++} \label{sec:cpp}
 
@@ -195,23 +195,25 @@ and where performance matters. It is not always possible, or desirable, to repla
 But when the same conditional logic reappears in other pieces of code it becomes a maintenance problem, because one 
 risks modifying one condition without adapting the other part as well.
 
-There are three variants of complex conditional logic and ways to remove it mentioned and described by \cite{polymorphism}.
+There are three variants of complex conditional logic and ways to remove it mentioned and described in 
+\cite{polymorphism}.
 
 \begin{itemize}
-	\item \textbf{Transform Client Type Checks}
-	If a client is testing the type of a certain provider object, it can be refactored by moving code from the client to 
-	the provider. The special case that a client tests whether a provider is \code{null} or empty can be refactored by 
-	introducing a special \emph{null object} \cite{nullobject}.
-	
-	\item \textbf{Transform Self Type Checks}
-	The case that an object is testing an attribute serving as some kind of type-tag can be refactored by creating a new 
-	subclass for each leg of the conditional and moving the code as a polymorphic method into the subclass. If an object is 
-	changing its state dynamically it can be refactored by introducing a state object \cite[pp.~305--313]{designpatterns}.
-	
-	\item \textbf{Transform Conditionals into Registration}
-	Another case are clients which test the type of a series of objects before performing a certain action. This can be 
-	refactored by a central registration mechanism, which acts as a mediator between objects providing services and clients 
-	requesting services.
+  \item \textbf{Transform Client Type Checks}
+  If a client is testing the type of a certain provider object, it can be refactored by moving code from the client to 
+  the provider. The special case that a client tests whether a provider is \code{null} or empty can be refactored by 
+  introducing a special \emph{null object} \cite{nullobject}.
+  
+  \item \textbf{Transform Self Type Checks}
+  The case that an object is testing an attribute serving as some kind of type-tag can be refactored by creating a new 
+  subclass for each leg of the conditional and moving the code as a polymorphic method into the subclass. If an object 
+  is changing its state dynamically, it can be refactored by introducing a state object 
+  \cite[pp.~305--313]{designpatterns}.
+  
+  \item \textbf{Transform Conditionals Into Registration}
+  Another case are clients which test the type of a series of objects before performing a certain action. This can be 
+  refactored by a central registration mechanism, which acts as a mediator between objects providing services and 
+  clients requesting services.
 \end{itemize}
 
 
@@ -232,7 +234,8 @@ program based both on its desired design and on its source code.
 The process of this method is illustrated in \autoref{fig:designdiff}. The programmer creates a desired design for the 
 software. This design shall be based on the current software design and additionally on the understanding of how the 
 software may be required to evolve. The software is then refactored using that design. The resulting software code has 
-the same behavior as before the refactoring. In more detail, the whole algorithm divided into a detection phase and a reification phase. 
+the same behavior as before the refactoring. That is, the whole algorithm is divided into a detection phase and a 
+reification phase.
 
 This method is supported by some tools, two of them are \JDEvAn (Java Design Evolution and Analysis) \cite{JDEvAn} and 
 Code-Imp (Combinatorial Optimization for Design Improvement) \cite{DBLP:journals/jss/OKeeffeC08, 
@@ -329,7 +332,9 @@ Gil and Orrù \cite{sparta} present a tool that can be used to automatically app
 (parts of) a system, with the goal to make its code more compact. The tool is integrated into the Eclipse IDE and 
 provides opportunities for the user to apply one  or more refactorings to different parts of the codebase.
 
-In summary, we can say that a large number of automated tools are already available. These tools support developers in refactoring a software, which is particular important for the common problem of extending an existing program with new functionality. However, there are also techniques with much potential that are not supported by tools by now.
+In summary, we can say that a large number of automated tools are already available. These tools support developers in 
+refactoring software, which is particularly important for the common problem of extending an existing program with new 
+functionality. However, there are also techniques with much potential that are not supported by tools yet.
 
 % TODO summarize our own parts
 
