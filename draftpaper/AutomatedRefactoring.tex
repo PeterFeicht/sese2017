@@ -105,8 +105,6 @@ introducing object-orientation into a C codebase \cite{cpp}.
 
 This section will give an overview of each paper by summarizing the main points.
 
-\pf{Should we include the results in the following subsections, or make a dedicated section after this one?}
-
 \subsection{Restructuring Legacy C Code into C++}
 
 This is an older paper from 1999 by Richard Fanta and Václav Rajlich of \emph{Wayne State University} in Detroit, MI, 
@@ -156,6 +154,12 @@ phases.
   functions that have the target class as a parameter, access it through a global variable, or have individual members 
   of the target class as parameters.
 \end{enumerate}
+
+\subsubsection{Results}
+
+They selected a subsystem of 3000 lines from the Mosaic codebase for their tests. Of these 3000 lines they were able to 
+encapsulate about 60\% of the code into 12 classes. As an example where clone removal was necessary the give the URL 
+class, which was extracted separately at five different locations.
 
 \subsection{Conditionals vs. Polymorphism}
 
