@@ -299,7 +299,7 @@ After each modification to a source file, it is parsed and available suggestions
 source code. From there, it is possible to apply a refactoring to a selected scope (method only, the whole file, etc).
 
 This paper is unique in our list, because it describes a tool that is actively maintained and can be used in 
-production, a tool that \enquote{really exists} one could say.
+production.
 
 
 \section{Automated Refactoring in General}
@@ -324,7 +324,11 @@ more than 13 years later. We saw that some tools are able to identify where refa
 of the \emph{Spartanizer}, while others need to be guided by the developer.
 
 Determining when a software system has a need for refactoring is supported by tools for the detection of \emph{code 
-smells}, symptoms of poor design and implementation choices \cite{DBLP:books/daglib/0019908}.
+smells}, symptoms of poor design and implementation choices \cite{DBLP:books/daglib/0019908}. Various such tools are 
+already available. Palomba et al.\ use, for example, information from the change history of a software system to detect 
+smells \cite{DBLP:conf/kbse/PalombaBPOLP13}.
+However, we think that combining this with the second point from above, actually identifying how a smell can be fixed 
+by applying certain refactorings at specific parts in the code, is essential for the success of those tools.
 
 
 \section{Conclusion}
