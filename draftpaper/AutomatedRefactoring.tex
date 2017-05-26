@@ -236,55 +236,60 @@ motivate programmers to make use of this method.
 
 \subsection{Design Differencing} \label{sec:design-diff}
 
+In their paper from 2012, Moghadam and Ó Cinnéide \cite{design-diff} propose a novel approach for refactoring a 
+software system based on a desired design and information extracted from the source code.
+
+The process for this approach is illustrated in \autoref{fig:designdiff}. The programmer creates a desired design for 
+the system. The desired design is based on the current design of the system, as well as an understanding of how the 
+system may be required to evolve in the future. The software system is then refactored based on the difference of the 
+desired design and the current design, which is extracted from the source code.
+
+The whole process is divided into two phases. In the \emph{detection phase}, information on the current design is 
+extracted from the source code, which can then be used to create the desired design. After the desired design is 
+created, necessary refactorings are calculated based on the difference of actual and desired design. In the following 
+\emph{reification phase}, previously calculated refactorings are applied to the system in order to change its design.
+
 \begin{figure}[t]
   \centering
     \includegraphics[width=\linewidth]{figures/designdiff.png}
-  \caption{Automated refactoring process using Design Differencing \cite{design-diff}}
+  \caption{Refactoring process using design differencing \cite{design-diff}}
   \label{fig:designdiff}
 \end{figure}
 
-An automated refactoring approach is described in \cite{design-diff}. This novel refactoring approach refactors a 
-program based both on its desired design and on its source code.
-The process of this method is illustrated in \autoref{fig:designdiff}. The programmer creates a desired design for the 
-software. This design shall be based on the current software design and additionally on the understanding of how the 
-software may be required to evolve. The software is then refactored using that design. The resulting software code has 
-the same behavior as before the refactoring. That is, the whole algorithm is divided into a detection phase and a 
-reification phase.
-
-This method is supported by some tools, two of them are \JDEvAn (Java Design Evolution and Analysis) \cite{JDEvAn} and 
-Code-Imp (Combinatorial Optimization for Design Improvement) \cite{DBLP:journals/jss/OKeeffeC08, 
-DBLP:conf/icse/MoghadamC11}.
+This refactoring approach is supported by two tools in particular: \JDEvAn (Java Design Evolution and Analysis) 
+\cite{JDEvAn}, which is used for fact extraction and design differencing, and Code-Imp (Combinatorial Optimization for 
+Design Improvement) \cite{DBLP:journals/jss/OKeeffeC08, DBLP:conf/icse/MoghadamC11}, which is used for applying 
+refactorings to the software system. The following sections will give a brief description of both tools.
 
 \subsubsection{JDEvAn}
 
 \JDEvAn is developed at the University of Alberta. It is an Eclipse plugin which analyzes a software system's 
 design-evolution history and provides information about the system's history. The plugin contains a Java fact 
 extractor, a query-based change-pattern detection module, and a design differencing algorithm. The Java fact extractor 
-extracts a UML logical design model from Java source code. The design differencing algorithm uses lexical and 
+extracts a logical UML design model from Java source code. The design differencing algorithm uses lexical and 
 structural similarity to automatically recover differences between one version of a system and the next \cite{Xing2007}.
-\JDEvAn provides a refactoring-detection module which categorizes detected differences as refactoring instances 
+\JDEvAn provides a refactoring detection module which categorizes detected differences as refactoring instances 
 \cite{DBLP:conf/wcre/XingS06}.
 
-The process initially extracts two UML models from the source code corresponding to two versions of a Java system. 
-Afterwards the two models are compared and the differences between them are detected. Finally the detected differences 
-are categorized as design-level refactoring instances. For example, a method which is moved from a class to a subclass 
-in the desired design is detected as a number of \emph{move method} differences.
+The process initially extracts two UML models from the source code corresponding to two versions of the software 
+system. Afterwards, the two models are compared and the differences between them are detected. Finally the detected 
+differences are categorized as design-level refactoring instances. For example, a method which is moved from a class to 
+a subclass in the desired design is detected as a number of \emph{move method} differences.
 
 \subsubsection{Code-Imp}
 
-Code-Imp is developed by \cite{DBLP:journals/jss/OKeeffeC08, DBLP:conf/icse/MoghadamC11} as a fully automated 
-refactoring framework for automatically improving the design of existing programs. It takes Java source code as input 
-and provides a refactored version of the program as output.
+Code-Imp is developed by O'Keeffe, Ó Cinnéide, and Moghadam \cite{DBLP:journals/jss/OKeeffeC08, 
+DBLP:conf/icse/MoghadamC11} as a fully automated refactoring framework for improving the design of existing programs. 
+It takes Java source code as input and provides a refactored version of the program as output.
 
-The refactoring process of Code-Imp is driven by a search technique. The search technique is steepest-ascent 
-hill climbing, where the next refactoring to be applied is the one that produces the best improvement in the so called 
-fitness function, a function which measures how good the program is.
+The refactoring process of Code-Imp is driven by a search technique, steepest-ascent hill climbing. With this 
+technique, the next refactoring to be applied is the one that produces the best improvement in the so called fitness 
+function, a function which measures how good the program is.
 
 The benefit of refactoring software using tools like \JDEvAn and Code-Imp is that it enables automated refactoring 
-towards a high-quality desired design, and hence improves maintenance productivity. The efficacy of the approach was 
-additionally proven by \cite{design-diff}. Their findings were that the original program could be refactored to the 
-desired design with an accuracy of over 90\%, hence demonstrating the viability of automated refactoring using design 
-differencing.
+towards a high-quality desired design, and hence improves maintenance productivity. Moghadam and Ó Cinnéide showed the 
+efficacy of this approach, their findings were that the original program could be refactored to the desired design with 
+an accuracy of over 90\%, hence demonstrating the viability of automated refactoring using design differencing.
 
 \subsection{The Spartanizer} \label{sec:sparta}
 
