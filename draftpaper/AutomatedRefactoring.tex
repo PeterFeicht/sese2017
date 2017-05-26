@@ -219,6 +219,8 @@ Demeyer describes three variants of complex conditional logic, and ways to remov
   clients requesting services.
 \end{enumerate}
 
+\subsubsection{Results}
+
 Demeyer concludes that for all but the very simplest conditionals, replacing them with polymorphism has no negative 
 impact on performance. In fact it has an increasingly positive impact for larger conditionals, and mostly no impact 
 when replacing \code{switch} statements.
@@ -286,6 +288,8 @@ The refactoring process of Code-Imp is driven by a search technique, steepest-as
 technique, the next refactoring to be applied is the one that produces the best improvement in the so called fitness 
 function, a function which measures how good the program is.
 
+\subsubsection{Results}
+
 The benefit of refactoring software using tools like \JDEvAn and Code-Imp is that it enables automated refactoring 
 towards a high-quality desired design, and hence improves maintenance productivity. Moghadam and Ó Cinnéide showed the 
 efficacy of this approach, their findings were that the original program could be refactored to the desired design with 
@@ -315,8 +319,12 @@ of the verbosity in the generated methods.
 After each modification to a source file, it is parsed and available suggestions are displayed as info markers on the 
 source code. From there, it is possible to apply a refactoring to a selected scope (method only, the whole file, etc).
 
+\subsubsection{Results}
+
 This paper is unique in our list, because it describes a tool that is actively maintained and can be used in 
-production.
+production. The tool is available from the Eclipse Marketplace\footnotemark{} with over a hundred installs each month.
+
+\footnotetext{\url{https://marketplace.eclipse.org/content/spartan-refactoring-0}}
 
 
 \section{Automated Refactoring in General}
