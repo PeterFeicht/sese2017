@@ -19,7 +19,6 @@
 
 \usepackage{listings}
 \lstset{
-  language=Java,
   basicstyle=\ttfamily\footnotesize,
   stringstyle=\color{Plum}\slshape,
   commentstyle=\color{OliveGreen},
@@ -183,43 +182,57 @@ They selected a subsystem of 3000 lines from the Mosaic codebase for their tests
 encapsulate about 60\% of the code into 12 classes. As an example where clone removal was necessary the give the URL 
 class, which was extracted separately at five different locations.
 
-\subsection{Conditionals vs. Polymorphism} \label{sec:polymorphism}
+\subsection{Performance Impact of Polymorphism} \label{sec:polymorphism}
 
-The argument that the cost of refactoring cannot be afforded is often made by programmers, because refactoring usually 
-has a negative impact on the performance.
+Programmers often argue that they cannot afford refactoring their code to use polymorphism instead of large 
+conditionals, because of a negative impact on performance. Serge Demeyer investigated this claim in 2002 
+\cite{polymorphism} by comparing the performance of a program using large conditionals against the same program with 
+conditionals replaced by polymorphism. The comparison showed that C++ programs modified in this way usually perform 
+better, or at least as good in the case of a small number of types.
 
-This trade-off has been investigated by Serge Demeyer in 2002 \cite{polymorphism} by comparing the performance of a 
-program which contains large conditionals against one where the conditionals were replaced by polymorphic method calls. 
-This comparison showed that C++ programs refactored this way perform faster than their non-refactored counterparts.
+The approach of introducing polymorphism to replace large conditional chains (or large \code{switch} statements) is of 
+course not always applicable. But when the same conditional logic appears in different parts of a program, 
+maintainability will likely suffer. With duplicated logic it is easy for a programmer to modify different parts of the 
+program in incompatible ways, or to just forget to evolve one instance in case another is modified.
 
-This approach to refactor a system is mostly suitable for software which contains a large number of conditional logic 
-and where performance matters. It is not always possible, or desirable, to replace conditional logic by polymorphism. 
-But when the same conditional logic reappears in other pieces of code it becomes a maintenance problem, because one 
-risks modifying one condition without adapting the other part as well.
-
-There are three variants of complex conditional logic and ways to remove it mentioned and described in 
-\cite{polymorphism}.
+Demeyer describes three variants of complex conditional logic, and ways to remove them.
 
 \begin{enumerate}
-  \item \textbf{Transform Client Type Checks}
+  \item \textbf{Client Type Checks}
   If a client is testing the type of a certain provider object, it can be refactored by moving code from the client to 
   the provider. The special case that a client tests whether a provider is \code{null} or empty can be refactored by 
   introducing a special \emph{null object} \cite{nullobject}.
   
-  \item \textbf{Transform Self Type Checks}
+  \item \textbf{Self Type Checks}
   The case that an object is testing an attribute serving as some kind of type-tag can be refactored by creating a new 
-  subclass for each leg of the conditional and moving the code as a polymorphic method into the subclass. If an object 
-  is changing its state dynamically, it can be refactored by introducing a state object 
+  subclass for each leg of the conditional and moving the code as a polymorphic method into the subclass. Listings 
+  \ref{lst:conditional} and \ref{lst:polymorphic} show an example of this case. A single class containing large methods 
+  with conditional logic in \autoref{lst:conditional} is replaced by several classes in \autoref{lst:polymorphic}, with 
+  each of the classes implementing one leg in the conditional chain.
+  
+  If an object changes its state dynamically, it can be refactored by introducing a state object   
   \cite[pp.~305--313]{designpatterns}.
   
-  \item \textbf{Transform Conditionals Into Registration}
+  \item \textbf{Transforming Conditionals into Registration}
   Another case are clients which test the type of a series of objects before performing a certain action. This can be 
   refactored by a central registration mechanism, which acts as a mediator between objects providing services and 
   clients requesting services.
 \end{enumerate}
 
+Demeyer concludes that for all but the very simplest conditionals, replacing them with polymorphism has no negative 
+impact on performance. In fact it has an increasingly positive impact for larger conditionals, and mostly no impact 
+when replacing \code{switch} statements.
+
 Although this method is easy to use, there is no tool support to automate the process. Therefore it is difficult to 
 motivate programmers to make use of this method.
+
+\lstinputlisting[language={[11]C++},float=t,label=lst:conditional,
+  caption={A class with type tag and large conditionals, showing both \code{if else} and \code{switch} statements}]
+  {code/ConditionalWidget.cpp}
+
+\lstinputlisting[language={[11]C++},morekeywords={override},float=t,label=lst:polymorphic,
+  caption={Class from \autoref{lst:conditional} replaced by several classes and polymorphic methods}]
+  {code/PolymorphicWidget.cpp}
 
 \subsection{Design Differencing} \label{sec:design-diff}
 
@@ -288,10 +301,10 @@ class with only one member, because they are aimed at the general case of many m
 of the class is shown in \autoref{lst:c1}, it is much more compact than the first version and has done away with much 
 of the verbosity in the generated methods.
 
-\lstinputlisting[float=tb,label=lst:c0,caption={A generic class with methods generated by Eclipse}]
+\lstinputlisting[language=Java,float=tb,label=lst:c0,caption={A generic class with methods generated by Eclipse}]
   {code/C0.java}
 
-\lstinputlisting[float=tb,label=lst:c1,caption={A spartanized version of the class in \autoref{lst:c0}}]
+\lstinputlisting[language=Java,float=tb,label=lst:c1,caption={A spartanized version of the class in \autoref{lst:c0}}]
   {code/C1.java}
 
 After each modification to a source file, it is parsed and available suggestions are displayed as info markers on the 
