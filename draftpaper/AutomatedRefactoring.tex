@@ -113,11 +113,59 @@ desirable in a number of cases.
 In this article we're going to highlight some recent and not-so-recent contributions in the field of automatic 
 refactoring, ranging from simple tasks like making code more compact \cite{sparta}, to more complicated tasks like 
 introducing object-orientation into a C codebase \cite{cpp}.
-%We will also investigate the benefit from refactoring a software through replacing conditionals by using polymorphism 
-%\cite{polymorphism}, as well as the approach of using design differencing for automated refactoring \cite{design-diff}.
+We will also investigate the benefit from refactoring a software through replacing conditionals by using polymorphism 
+\cite{polymorphism}, as well as the approach of using design differencing for automated refactoring \cite{design-diff}.
+
+\section{Automated Refactoring in General}
+
+The investigation of some contributions to automated refactoring, as described in \autoref{sect:approaches}, has shown us that the spectrum of automated refactoring is quite wide. Different 
+techniques require more or less interaction from the user, and their scope ranges from localized changes (such as 
+introducing polymorphism into a class hierarchy as seen in \autoref{sec:polymorphism}) to changes to the whole software 
+system (such as changing the design of the whole system as seen in \autoref{sec:design-diff}).
+
+There are also different motivations for using automated refactoring, or refactoring in general. One might just want to 
+make code more readable on the one hand, on the other hand the motivation might be that a system requires profound 
+changes in order to make it more maintainable. In summary, there are three main goals which can be achieved with refactoring.
+
+\begin{enumerate}
+	\item \textbf{Understandability}
+	More straightforward and well organized code is easier to understand, which is the prerequisite for all further goals of refactoring.
+	\item \textbf{Correctness}
+	The more comprehensible a code is written, the easier it is to find defects by inspection in this code. Consequently, complex, poorly structured code which contains code smells is much more difficult to inspect for defects.
+	It is also easier to but well refracted, componentized code with high coherency of components and loose coupling between components under test. The resulting test cases also contains less overlap in code coverage, therefore this tests perform faster and are more trustworthy. More straightforward code tends to be more predictable and reliable as well.
+	\item \textbf{Ease of Maintenance and Evolution}
+	Refactoring should result in well-factored, high quality, easy to understand common components. Such components are then easier to use, extend, and maintain.
+	Changes on well refactored code have smaller impact and it is also more obvious how to make the appropriate changes.
+\end{enumerate}
+
+Mens et al.\ identify three steps in the refactoring process \cite{DBLP:conf/iwpse/MensTM03} which are also illustrated 
+in \autoref{fig:process}:
+\begin{enumerate}
+	\item detect when an application should be refactored;
+	\item identify which refactorings should be applied and where; and
+	\item perform the refactorings.
+\end{enumerate}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{figures/process}
+	\caption{The refactoring process according to \cite{DBLP:conf/iwpse/MensTM03}}
+	\label{fig:process}
+\end{figure}
+
+They also note that of those steps, only the third one is currently well supported by tools. This is still true today, 
+more than 13 years later. We saw that some tools are able to identify where refactorings can be applied, as in the case 
+of the \emph{Spartanizer}, while others need to be guided by the developer.
+
+Determining when a software system has a need for refactoring is supported by tools for the detection of \emph{code 
+	smells}, symptoms of poor design and implementation choices \cite{DBLP:books/daglib/0019908}. Various such tools are 
+already available. Palomba et al.\ use, for example, information from the change history of a software system to detect 
+smells \cite{DBLP:conf/kbse/PalombaBPOLP13}.
+However, we think that combining this with the second point from above, actually identifying how a smell can be fixed 
+by applying certain refactorings at specific parts in the code, is essential for the success of those tools.
 
 
-\section{Automated Refactoring Approaches}
+\section{Automated Refactoring Approaches}\label{sect:approaches}
 
 There are many refactoring tools available, most of which focus on performing specific refactorings as requested by the
 developer, other tools are based on search-based refactoring. Although there are already many tools for software 
@@ -325,43 +373,6 @@ This paper is unique in our list, because it describes a tool that is actively m
 production. The tool is available from the Eclipse Marketplace\footnotemark{} with over a hundred installs each month.
 
 \footnotetext{\url{https://marketplace.eclipse.org/content/spartan-refactoring-0}}
-
-
-\section{Automated Refactoring in General}
-
-As we have already seen from just a few papers, the spectrum of automated refactoring is quite wide. Different 
-techniques require more or less interaction from the user, and their scope ranges from localized changes (such as 
-introducing polymorphism into a class hierarchy as seen in \autoref{sec:polymorphism}) to changes to the whole software 
-system (such as changing the design of the whole system as seen in \autoref{sec:design-diff}).
-
-There are also different motivations for using automated refactoring, or refactoring in general. One might just want to 
-make code more readable on the one hand, on the other hand the motivation might be that a system requires profound 
-changes in order to make it more maintainable.
-Mens et al.\ identify three steps in the refactoring process \cite{DBLP:conf/iwpse/MensTM03} which are also illustrated 
-in \autoref{fig:process}:
-\begin{enumerate}
-  \item detect when an application should be refactored;
-  \item identify which refactorings should be applied and where; and
-  \item perform the refactorings.
-\end{enumerate}
-
-\begin{figure}[htb]
-  \centering
-    \includegraphics[width=0.8\linewidth]{figures/process}
-  \caption{The refactoring process according to \cite{DBLP:conf/iwpse/MensTM03}}
-  \label{fig:process}
-\end{figure}
-
-They also note that of those steps, only the third one is currently well supported by tools. This is still true today, 
-more than 13 years later. We saw that some tools are able to identify where refactorings can be applied, as in the case 
-of the \emph{Spartanizer}, while others need to be guided by the developer.
-
-Determining when a software system has a need for refactoring is supported by tools for the detection of \emph{code 
-smells}, symptoms of poor design and implementation choices \cite{DBLP:books/daglib/0019908}. Various such tools are 
-already available. Palomba et al.\ use, for example, information from the change history of a software system to detect 
-smells \cite{DBLP:conf/kbse/PalombaBPOLP13}.
-However, we think that combining this with the second point from above, actually identifying how a smell can be fixed 
-by applying certain refactorings at specific parts in the code, is essential for the success of those tools.
 
 
 \section{Conclusion}
