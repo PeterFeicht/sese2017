@@ -113,10 +113,8 @@ desirable in a number of cases.
 In this article we're going to highlight some recent and not-so-recent contributions in the field of automatic 
 refactoring, ranging from simple tasks like making code more compact \cite{sparta}, to more complicated tasks like 
 introducing object-orientation into a C codebase \cite{cpp}.
-We will also investigate the benefit from refactoring a software through replacing conditionals by using polymorphism 
-\cite{polymorphism}, as well as the approach of using design differencing for automated refactoring \cite{design-diff}.
 
-\section{Automated Refactoring in General}
+\section{Automated Refactoring in General}\label{sect:general}
 
 The investigation of some contributions to automated refactoring, as described in \autoref{sect:approaches}, has shown us that the spectrum of automated refactoring is quite wide. Different 
 techniques require more or less interaction from the user, and their scope ranges from localized changes (such as 
@@ -311,7 +309,7 @@ This refactoring approach is supported by two tools in particular: \JDEvAn (Java
 Design Improvement) \cite{DBLP:journals/jss/OKeeffeC08, DBLP:conf/icse/MoghadamC11}, which is used for applying 
 refactorings to the software system. The following sections will give a brief description of both tools.
 
-\subsubsection{JDEvAn}
+\subsubsection{JDEvAn}\label{sect:JDEvAn}
 
 \JDEvAn is developed at the University of Alberta. It is an Eclipse plugin which analyzes a software system's 
 design-evolution history and provides information about the system's history. The plugin contains a Java fact 
@@ -326,7 +324,7 @@ system. Afterwards, the two models are compared and the differences between them
 differences are categorized as design-level refactoring instances. For example, a method which is moved from a class to 
 a subclass in the desired design is detected as a number of \emph{move method} differences.
 
-\subsubsection{Code-Imp}
+\subsubsection{Code-Imp}\label{sect:Code-Imp}
 
 Code-Imp is developed by O'Keeffe, Ó Cinnéide, and Moghadam \cite{DBLP:journals/jss/OKeeffeC08, 
 DBLP:conf/icse/MoghadamC11} as a fully automated refactoring framework for improving the design of existing programs. 
@@ -374,6 +372,55 @@ production. The tool is available from the Eclipse Marketplace\footnotemark{} wi
 
 \footnotetext{\url{https://marketplace.eclipse.org/content/spartan-refactoring-0}}
 
+\subsection{Evaluation}
+
+We compared the approaches defined in \autoref{sect:approaches} with respect to the main refactoring goals and refactoring steps defined in \autoref{sect:general}. This showed us some similarities and differences, or the advantages and disadvantages of the respective approaches, which are described in \autoref{sect:results} and summarized in tables \ref{tbl:goals} and \ref{tbl:steps}.
+
+\subsubsection{Similarities and differences}\label{sect:results}
+
+One advantage of using refactoring tools to restructure legacy C code into C++ (\autoref{sec:cpp}) is that C++ is more high level (which mean easier to understand and code, which should also result in less bugs). Therefore all three goals are achieved, but the refactoring tools can just be used as a support, as user guidance is needed throughout the whole refactoring process.
+
+Introducing polymorphism to replace conditional logic leads to a better maintainability of code where the same conditional logic would appear in different parts. Indeed it can not clearly be said that such a code is easier to understand. There is also no tool support available for the execution of the refactoring.
+
+Using Design Differencing (\autoref{sec:design-diff}) leads to a system, which more likely fits the requirements. This makes it also easier to maintain the system, as the correctness can immediately evaluated using the desired design, which has to be defined by the user.
+
+JDEvAn (\autoref{sect:JDEvAn}) and Code-Imp (\autoref{sect:Code-Imp}) both provide a fully automated solution for refactoring using Design Differencing. However, as here the designs are extracted from the source code, the correctness cannot be guaranteed.
+
+The Spartanizer (\autoref{sec:sparta}) uses refactoring rules, with the main goal to simplify the code according to them.
+
+\begin{table}[]
+	\centering
+	\caption{Comparison with respect to achieve goals}
+	\label{tbl:goals}
+	\begin{tabular}{l|l|l|l|}
+		\cline{2-4}
+		& Understandability & Correctness & Maintenance \\ \hline
+		\multicolumn{1}{|l|}{C to C++} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+		\multicolumn{1}{|l|}{Polymorphism}  & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+		\multicolumn{1}{|l|}{Design Diff.}  & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+		\multicolumn{1}{|l|}{JDEvAn}   & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{+}\\ \hline
+		\multicolumn{1}{|l|}{Code-Imp} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{+}\\ \hline
+		\multicolumn{1}{|l|}{The Spartanizer}   & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+}\\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[]
+	\centering
+	\caption{Comparison with respect to supported steps}
+	\label{tbl:steps}
+	\begin{tabular}{l|l|l|l|}
+		\cline{2-4}
+		& Detection & Identification & Execution \\ \hline
+		\multicolumn{1}{|l|}{C to C++} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{o}\\ \hline
+		\multicolumn{1}{|l|}{Polymorphism}   & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{-}\\ \hline
+		\multicolumn{1}{|l|}{Design Differencing}  & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+}\\ \hline
+		\multicolumn{1}{|l|}{JDEvAn}   & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+		\multicolumn{1}{|l|}{Code-Imp} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+		\multicolumn{1}{|l|}{The Spartanizer}   & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+	\end{tabular}
+\end{table}
+
+\lk{Sind diese Tabellen verständlich? Man könnte dann auch noch einen Absatz über die Resultate in den Tabellen schreiben...}
 
 \section{Conclusion}
 
