@@ -115,7 +115,7 @@ refactoring, ranging from simple tasks like making code more compact \cite{spart
 introducing object-orientation into a C codebase \cite{cpp}.
 
 
-\section{Automated Refactoring in General}\label{sec:general}
+\section{Automated Refactoring in General} \label{sec:general}
 
 The investigation of some contributions to automated refactoring, as we will show in \autoref{sec:approaches}, has 
 shown us that the spectrum of automated refactoring is quite wide. Different techniques require more or less 
@@ -170,7 +170,7 @@ However, we think that combining this with the second point from above, actually
 by applying certain refactorings at specific parts in the code, is essential for the success of those tools.
 
 
-\section{Automated Refactoring Approaches}\label{sec:approaches}
+\section{Automated Refactoring Approaches} \label{sec:approaches}
 
 There are many refactoring tools available, most of which focus on performing specific refactorings as requested by the
 developer, other tools are based on search-based refactoring. Although there are already many tools for software 
@@ -316,7 +316,7 @@ This refactoring approach is supported by two tools in particular: \JDEvAn (Java
 Design Improvement) \cite{DBLP:journals/jss/OKeeffeC08, DBLP:conf/icse/MoghadamC11}, which is used for applying 
 refactorings to the software system. The following sections will give a brief description of both tools.
 
-\subsubsection{JDEvAn}\label{sec:JDEvAn}
+\subsubsection{JDEvAn} \label{sec:JDEvAn}
 
 \JDEvAn is developed at the University of Alberta. It is an Eclipse plugin which analyzes a software system's 
 design-evolution history and provides information about the system's history. The plugin contains a Java fact 
@@ -331,7 +331,7 @@ system. Afterwards, the two models are compared and the differences between them
 differences are categorized as design-level refactoring instances. For example, a method which is moved from a class to 
 a subclass in the desired design is detected as a number of \emph{move method} differences.
 
-\subsubsection{Code-Imp}\label{sec:Code-Imp}
+\subsubsection{Code-Imp} \label{sec:Code-Imp}
 
 Code-Imp is developed by O'Keeffe, Ó Cinnéide, and Moghadam \cite{DBLP:journals/jss/OKeeffeC08, 
 DBLP:conf/icse/MoghadamC11} as a fully automated refactoring framework for improving the design of existing programs. 
@@ -383,7 +383,7 @@ production. The tool is available from the Eclipse Marketplace\footnotemark{} wi
 
 We compared the approaches defined in \autoref{sec:approaches} with respect to the main refactoring goals and refactoring steps defined in \autoref{sec:general}. This showed us some similarities and differences, or the advantages and disadvantages of the respective approaches, which are described in \autoref{sec:results} and summarized in tables \ref{tbl:goals} and \ref{tbl:steps}.
 
-\subsubsection{Similarities and differences}\label{sec:results}
+\subsubsection{Similarities and differences} \label{sec:results}
 
 One advantage of using refactoring tools to restructure legacy C code into C++ (\autoref{sec:cpp}) is that C++ is more high level (which mean easier to understand and code, which should also result in less bugs). Therefore all three goals are achieved, but the refactoring tools can just be used as a support, as user guidance is needed throughout the whole refactoring process.
 
