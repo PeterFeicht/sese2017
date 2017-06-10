@@ -379,21 +379,32 @@ production. The tool is available from the Eclipse Marketplace\footnotemark{} wi
 
 \footnotetext{\url{https://marketplace.eclipse.org/content/spartan-refactoring-0}}
 
-\subsection{Evaluation}
 
-We compared the approaches defined in \autoref{sec:approaches} with respect to the main refactoring goals and refactoring steps defined in \autoref{sec:general}. This showed us some similarities and differences, or the advantages and disadvantages of the respective approaches, which are described in \autoref{sec:results} and summarized in tables \ref{tbl:goals} and \ref{tbl:steps}.
+\section{Evaluation}
 
-\subsubsection{Similarities and differences} \label{sec:results}
+We compared the approaches outlined in \autoref{sec:approaches} with respect to their main refactoring goals and 
+refactoring steps defined in \autoref{sec:general}. This showed us some similarities and differences, as well as some 
+advantages and disadvantages of the respective approaches. The comparison is summarized in tables \ref{tbl:goals} and 
+\ref{tbl:steps}, the remainder of this section will give a quick description.
 
-One advantage of using refactoring tools to restructure legacy C code into C++ (\autoref{sec:cpp}) is that C++ is more high level (which mean easier to understand and code, which should also result in less bugs). Therefore all three goals are achieved, but the refactoring tools can just be used as a support, as user guidance is needed throughout the whole refactoring process.
+One advantage of using refactoring tools to restructure legacy C code into C++ (\autoref{sec:cpp}) is that C++ is more 
+high level (which means easier to understand and write, which should also result in fewer bugs). Therefore all three 
+goals are achieved, but the refactoring tools can just be used as a support mechanism, as user guidance is needed 
+throughout the whole refactoring process.
 
-Introducing polymorphism to replace conditional logic leads to a better maintainability of code where the same conditional logic would appear in different parts. Indeed it can not clearly be said that such a code is easier to understand. There is also no tool support available for the execution of the refactoring.
+Introducing polymorphism to replace conditional logic leads to better maintainability of code where the same 
+conditional logic would appear in different parts. Indeed it can not clearly be said that such code is easier to 
+understand. There is also no tool support available for the execution of the refactoring.
 
-Using Design Differencing (\autoref{sec:design-diff}) leads to a system, which more likely fits the requirements. This makes it also easier to maintain the system, as the correctness can immediately evaluated using the desired design, which has to be defined by the user.
+Using design differencing (\autoref{sec:design-diff}) leads to a system which more likely fits the requirements. This 
+also makes it easier to maintain the system, as the correctness can immediately be evaluated using the desired design, 
+which has to be defined by the user.
+\JDEvAn and Code-Imp both provide a fully automated solution for 
+refactoring using design differencing. However, as the designs are extracted from the source code, correctness cannot 
+be guaranteed.
 
-JDEvAn (\autoref{sec:JDEvAn}) and Code-Imp (\autoref{sec:Code-Imp}) both provide a fully automated solution for refactoring using Design Differencing. However, as here the designs are extracted from the source code, the correctness cannot be guaranteed.
-
-The Spartanizer (\autoref{sec:sparta}) uses refactoring rules, with the main goal to simplify the code according to them.
+The Spartanizer (\autoref{sec:sparta}) uses refactoring rules, its main goal being the simplification of code according 
+to the spartan programming style.
 
 \begin{table}[]
   \centering
