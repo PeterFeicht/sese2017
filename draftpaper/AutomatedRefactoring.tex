@@ -126,29 +126,29 @@ make code more readable on the one hand, on the other hand the motivation might 
 changes in order to make it more maintainable. In summary, there are three main goals which can be achieved with refactoring.
 
 \begin{enumerate}
-	\item \textbf{Understandability}
-	More straightforward and well organized code is easier to understand, which is the prerequisite for all further goals of refactoring.
-	\item \textbf{Correctness}
-	The more comprehensible a code is written, the easier it is to find defects by inspection in this code. Consequently, complex, poorly structured code which contains code smells is much more difficult to inspect for defects.
-	It is also easier to but well refracted, componentized code with high coherency of components and loose coupling between components under test. The resulting test cases also contains less overlap in code coverage, therefore this tests perform faster and are more trustworthy. More straightforward code tends to be more predictable and reliable as well.
-	\item \textbf{Ease of Maintenance and Evolution}
-	Refactoring should result in well-factored, high quality, easy to understand common components. Such components are then easier to use, extend, and maintain.
-	Changes on well refactored code have smaller impact and it is also more obvious how to make the appropriate changes.
+  \item \textbf{Understandability}
+  More straightforward and well organized code is easier to understand, which is the prerequisite for all further goals of refactoring.
+  \item \textbf{Correctness}
+  The more comprehensible a code is written, the easier it is to find defects by inspection in this code. Consequently, complex, poorly structured code which contains code smells is much more difficult to inspect for defects.
+  It is also easier to but well refracted, componentized code with high coherency of components and loose coupling between components under test. The resulting test cases also contains less overlap in code coverage, therefore this tests perform faster and are more trustworthy. More straightforward code tends to be more predictable and reliable as well.
+  \item \textbf{Ease of Maintenance and Evolution}
+  Refactoring should result in well-factored, high quality, easy to understand common components. Such components are then easier to use, extend, and maintain.
+  Changes on well refactored code have smaller impact and it is also more obvious how to make the appropriate changes.
 \end{enumerate}
 
 Mens et al.\ identify three steps in the refactoring process \cite{DBLP:conf/iwpse/MensTM03} which are also illustrated 
 in \autoref{fig:process}:
 \begin{enumerate}
-	\item detect when an application should be refactored;
-	\item identify which refactorings should be applied and where; and
-	\item perform the refactorings.
+  \item detect when an application should be refactored;
+  \item identify which refactorings should be applied and where; and
+  \item perform the refactorings.
 \end{enumerate}
 
 \begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.8\linewidth]{figures/process}
-	\caption{The refactoring process according to \cite{DBLP:conf/iwpse/MensTM03}}
-	\label{fig:process}
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/process}
+  \caption{The refactoring process according to \cite{DBLP:conf/iwpse/MensTM03}}
+  \label{fig:process}
 \end{figure}
 
 They also note that of those steps, only the third one is currently well supported by tools. This is still true today, 
@@ -156,7 +156,7 @@ more than 13 years later. We saw that some tools are able to identify where refa
 of the \emph{Spartanizer}, while others need to be guided by the developer.
 
 Determining when a software system has a need for refactoring is supported by tools for the detection of \emph{code 
-	smells}, symptoms of poor design and implementation choices \cite{DBLP:books/daglib/0019908}. Various such tools are 
+smells}, symptoms of poor design and implementation choices \cite{DBLP:books/daglib/0019908}. Various such tools are 
 already available. Palomba et al.\ use, for example, information from the change history of a software system to detect 
 smells \cite{DBLP:conf/kbse/PalombaBPOLP13}.
 However, we think that combining this with the second point from above, actually identifying how a smell can be fixed 
@@ -389,35 +389,35 @@ JDEvAn (\autoref{sect:JDEvAn}) and Code-Imp (\autoref{sect:Code-Imp}) both provi
 The Spartanizer (\autoref{sec:sparta}) uses refactoring rules, with the main goal to simplify the code according to them.
 
 \begin{table}[]
-	\centering
-	\caption{Comparison with respect to achieve goals}
-	\label{tbl:goals}
-	\begin{tabular}{l|l|l|l|}
-		\cline{2-4}
-		& Understandability & Correctness & Maintenance \\ \hline
-		\multicolumn{1}{|l|}{C to C++} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
-		\multicolumn{1}{|l|}{Polymorphism}  & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
-		\multicolumn{1}{|l|}{Design Diff.}  & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
-		\multicolumn{1}{|l|}{JDEvAn}   & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{+}\\ \hline
-		\multicolumn{1}{|l|}{Code-Imp} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{+}\\ \hline
-		\multicolumn{1}{|l|}{The Spartanizer}   & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+}\\ \hline
-	\end{tabular}
+  \centering
+  \caption{Comparison with respect to achieve goals}
+  \label{tbl:goals}
+  \begin{tabular}{l|l|l|l|}
+    \cline{2-4}
+    & Understandability & Correctness & Maintenance \\ \hline
+    \multicolumn{1}{|l|}{C to C++} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+    \multicolumn{1}{|l|}{Polymorphism}  & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+    \multicolumn{1}{|l|}{Design Diff.}  & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+    \multicolumn{1}{|l|}{JDEvAn}   & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{+}\\ \hline
+    \multicolumn{1}{|l|}{Code-Imp} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{+}\\ \hline
+    \multicolumn{1}{|l|}{The Spartanizer}   & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+}\\ \hline
+  \end{tabular}
 \end{table}
 
 \begin{table}[]
-	\centering
-	\caption{Comparison with respect to supported steps}
-	\label{tbl:steps}
-	\begin{tabular}{l|l|l|l|}
-		\cline{2-4}
-		& Detection & Identification & Execution \\ \hline
-		\multicolumn{1}{|l|}{C to C++} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{o}\\ \hline
-		\multicolumn{1}{|l|}{Polymorphism}   & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{-}\\ \hline
-		\multicolumn{1}{|l|}{Design Differencing}  & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+}\\ \hline
-		\multicolumn{1}{|l|}{JDEvAn}   & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
-		\multicolumn{1}{|l|}{Code-Imp} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
-		\multicolumn{1}{|l|}{The Spartanizer}   & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
-	\end{tabular}
+  \centering
+  \caption{Comparison with respect to supported steps}
+  \label{tbl:steps}
+  \begin{tabular}{l|l|l|l|}
+    \cline{2-4}
+    & Detection & Identification & Execution \\ \hline
+    \multicolumn{1}{|l|}{C to C++} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{o}\\ \hline
+    \multicolumn{1}{|l|}{Polymorphism}   & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{-}\\ \hline
+    \multicolumn{1}{|l|}{Design Differencing}  & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+}\\ \hline
+    \multicolumn{1}{|l|}{JDEvAn}   & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+    \multicolumn{1}{|l|}{Code-Imp} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+    \multicolumn{1}{|l|}{The Spartanizer}   & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+  \end{tabular}
 \end{table}
 
 \lk{Sind diese Tabellen verständlich? Man könnte dann auch noch einen Absatz über die Resultate in den Tabellen schreiben...}
