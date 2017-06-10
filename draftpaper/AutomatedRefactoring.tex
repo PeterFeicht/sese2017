@@ -406,39 +406,35 @@ be guaranteed.
 The Spartanizer (\autoref{sec:sparta}) uses refactoring rules, its main goal being the simplification of code according 
 to the spartan programming style.
 
-\begin{table}[]
+\begin{table}[htb]
   \centering
-  \caption{Comparison with respect to achieve goals}
+  \caption{Comparison with respect to achieved goals}
   \label{tbl:goals}
-  \begin{tabular}{l|l|l|l|}
-    \cline{2-4}
-    & Understandability & Correctness & Maintenance \\ \hline
-    \multicolumn{1}{|l|}{C to C++} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
-    \multicolumn{1}{|l|}{Polymorphism}  & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
-    \multicolumn{1}{|l|}{Design Diff.}  & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
-    \multicolumn{1}{|l|}{JDEvAn}   & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{+}\\ \hline
-    \multicolumn{1}{|l|}{Code-Imp} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{+}\\ \hline
-    \multicolumn{1}{|l|}{The Spartanizer}   & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+}\\ \hline
+  \begin{tabular}{r|ccc}
+    ~               & Understandability & Correctness & Maintainability \\ \hline
+    C to C++        & +                 & +           & + \\
+    Polymorphism    & o                 & +           & + \\
+    Design Diff.    & o                 & +           & + \\
+    JDEvAn          & o                 & -           & + \\
+    Code-Imp        & o                 & -           & + \\
+    The Spartanizer & +                 & o           & + \\
   \end{tabular}
 \end{table}
 
-\begin{table}[]
+\begin{table}[htb]
   \centering
   \caption{Comparison with respect to supported steps}
   \label{tbl:steps}
-  \begin{tabular}{l|l|l|l|}
-    \cline{2-4}
-    & Detection & Identification & Execution \\ \hline
-    \multicolumn{1}{|l|}{C to C++} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{o}\\ \hline
-    \multicolumn{1}{|l|}{Polymorphism}   & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{-}\\ \hline
-    \multicolumn{1}{|l|}{Design Differencing}  & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+}\\ \hline
-    \multicolumn{1}{|l|}{JDEvAn}   & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
-    \multicolumn{1}{|l|}{Code-Imp} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
-    \multicolumn{1}{|l|}{The Spartanizer}   & \multicolumn{1}{c|}{o} & \multicolumn{1}{c|}{+} & \multicolumn{1}{c|}{+}\\ \hline
+  \begin{tabular}{r|ccc}
+    ~               & Detection & Identification  & Execution \\ \hline
+    C to C++        & o         & o               & o \\
+    Polymorphism    & o         & o               & - \\
+    Design Diff.    & -         & o               & + \\
+    JDEvAn          & +         & +               & + \\
+    Code-Imp        & +         & +               & + \\
+    The Spartanizer & o         & +               & + \\
   \end{tabular}
 \end{table}
-
-\lk{Sind diese Tabellen verständlich? Man könnte dann auch noch einen Absatz über die Resultate in den Tabellen schreiben...}
 
 \section{Conclusion}
 
