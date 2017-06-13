@@ -18,14 +18,14 @@
 
 \usepackage{listings}
 \lstset{
-	basicstyle=\ttfamily\footnotesize,
-	stringstyle=\color{Plum}\slshape,
-	commentstyle=\color{OliveGreen},
-	keywordstyle=\color{Plum},
-	showstringspaces=false,
-	tabsize=2,
-	frame=single,
-	basicstyle=\tiny
+  basicstyle=\ttfamily\footnotesize,
+  stringstyle=\color{Plum}\slshape,
+  commentstyle=\color{OliveGreen},
+  keywordstyle=\color{Plum},
+  showstringspaces=false,
+  tabsize=2,
+  frame=single,
+  basicstyle=\tiny
 }
 
 
@@ -102,33 +102,33 @@
 \subsection{Automated Refactoring in General}
 
 \begin{frame}{Automated Refactoring}
-	\begin{itemize}
-		\item Goals
-		\begin{itemize}
-			\item Understandability
-			\item Correctness
-			\item Ease of Maintenance and Evolution
-		\end{itemize}
-	\end{itemize}
-	\pause
-	\begin{columns}[T]
-		\begin{column}{.5\textwidth}
-			\begin{itemize}
-				\item Automated Refactoring Steps
-				\begin{itemize}
-					\item detection when an application should be refactored
-					\item identification which refactorings should be applied and where
-					\item performing the refactorings
-				\end{itemize}
-			\end{itemize}
-		\end{column}
-		\begin{column}{.5\textwidth}
-			\begin{figure}[t]
-				\centering
-				\only<2>{\includegraphics[width=0.8\linewidth]{bilder/process}}
-			\end{figure}
-		\end{column}
-	\end{columns}	
+  \begin{itemize}
+    \item Goals
+    \begin{itemize}
+      \item Understandability
+      \item Correctness
+      \item Ease of Maintenance and Evolution
+    \end{itemize}
+  \end{itemize}
+  \pause
+  \begin{columns}[T]
+    \begin{column}{.5\textwidth}
+      \begin{itemize}
+        \item Automated Refactoring Steps
+        \begin{itemize}
+          \item detection when an application should be refactored
+          \item identification which refactorings should be applied and where
+          \item performing the refactorings
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{figure}[t]
+        \centering
+        \only<2>{\includegraphics[width=0.8\linewidth]{bilder/process}}
+      \end{figure}
+    \end{column}
+  \end{columns} 
 \end{frame}
 
 \section{Automated Refactoring Approaches}
@@ -136,16 +136,16 @@
 \subsection{Restructuring Legacy C Code into C++}
 
 \begin{frame}{Restructuring Legacy C Code into C++}
-	
-	\begin{itemize}
-		\item Case study on Mosaic browser code
-		\pause
-		\item Combination of refactorings to create classes
-		\begin{itemize}
-			\item From C \texttt{struct}s
-			\item From related variables
-		\end{itemize}
-	\end{itemize}
+  
+  \begin{itemize}
+    \item Case study on Mosaic browser code
+    \pause
+    \item Combination of refactorings to create classes
+    \begin{itemize}
+      \item From C \texttt{struct}s
+      \item From related variables
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \subsection{Performance Impact of Polymorphism}
@@ -162,14 +162,14 @@
 \end{frame}
 
 \begin{frame}[fragile]{Performance Impact of Polymorphis}
-	\begin{columns}[T]
-		\begin{column}{.49\textwidth}
-			\lstinputlisting{code/ConditionalWidget.cpp}
-		\end{column}
-		\begin{column}{.5\textwidth}
-			\lstinputlisting{code/PolymorphicWidget.cpp}
-		\end{column}
-	\end{columns}
+  \begin{columns}[T]
+    \begin{column}{.49\textwidth}
+      \lstinputlisting{code/ConditionalWidget.cpp}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \lstinputlisting{code/PolymorphicWidget.cpp}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \subsection{Design Differencing}
@@ -192,28 +192,28 @@
 \end{frame}
 
 \begin{frame}{Design Differencing}
-	\begin{columns}[T]
-		\begin{column}{.5\textwidth}
-			\begin{figure}[t]
-				\centering
-				\includegraphics[width=0.8\linewidth]{bilder/designdiff.png}
-			\end{figure}
-		\end{column}
-		\begin{column}{.5\textwidth}
-			\begin{itemize}
-				\item JDEvAn
-				\begin{itemize}
-					\item Item
-					\item Item
-				\end{itemize}
-				\item Code-Imp
-				\begin{itemize}
-					\item Item
-					\item Item
-				\end{itemize}
-			\end{itemize}
-		\end{column}
-	\end{columns}	
+  \begin{columns}[T]
+    \begin{column}{.5\textwidth}
+      \begin{figure}[t]
+        \centering
+        \includegraphics[width=0.8\linewidth]{bilder/designdiff.png}
+      \end{figure}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{itemize}
+        \item JDEvAn
+        \begin{itemize}
+          \item Item
+          \item Item
+        \end{itemize}
+        \item Code-Imp
+        \begin{itemize}
+          \item Item
+          \item Item
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+  \end{columns} 
 \end{frame}
 
 \subsection{The Spartanizer: Massive Automatic Refactoring}
@@ -228,57 +228,57 @@
 \end{frame}
 
 \begin{frame}[fragile]{The Spartanizer: Massive Automatic Refactoring}
-	\begin{columns}[T]
-		\begin{column}{.49\textwidth}
-			\lstinputlisting{code/C0.java}
-		\end{column}
-		\begin{column}{.5\textwidth}
-			\lstinputlisting{code/C1.java}
-		\end{column}
-	\end{columns}
+  \begin{columns}[T]
+    \begin{column}{.49\textwidth}
+      \lstinputlisting{code/C0.java}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \lstinputlisting{code/C1.java}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \section{Evaluation}
 
-\begin{frame}{Evaluation}	
-	\begin{itemize}
-		\item Item
-		\item Item
-	\end{itemize}
+\begin{frame}{Evaluation} 
+  \begin{itemize}
+    \item Item
+    \item Item
+  \end{itemize}
 \end{frame}
 
-\begin{frame}{Evaluation}	
-	\begin{table}[htb]
-		\centering
-		\caption{Comparison with respect to achieved goals}
-		\label{tbl:goals}
-		\begin{tabular}{r|ccc}
-			~               & Understandability & Correctness & Maintainability \\ \hline
-			C to C++        & +                 & +           & + \\
-			Polymorphism    & o                 & +           & + \\
-			Design Diff.    & o                 & +           & + \\
-			JDEvAn          & o                 & -           & + \\
-			Code-Imp        & o                 & -           & + \\
-			The Spartanizer & +                 & o           & + \\
-		\end{tabular}
-	\end{table}
+\begin{frame}{Evaluation} 
+  \begin{table}[htb]
+    \centering
+    \caption{Comparison with respect to achieved goals}
+    \label{tbl:goals}
+    \begin{tabular}{r|ccc}
+      ~               & Understandability & Correctness & Maintainability \\ \hline
+      C to C++        & +                 & +           & + \\
+      Polymorphism    & o                 & +           & + \\
+      Design Diff.    & o                 & +           & + \\
+      JDEvAn          & o                 & -           & + \\
+      Code-Imp        & o                 & -           & + \\
+      The Spartanizer & +                 & o           & + \\
+    \end{tabular}
+  \end{table}
 \end{frame}
 
 \begin{frame}{Evaluation}
-	\begin{table}[htb]
-		\centering
-		\caption{Comparison with respect to supported steps}
-		\label{tbl:steps}
-		\begin{tabular}{r|ccc}
-			~               & Detection & Identification  & Execution \\ \hline
-			C to C++        & o         & o               & o \\
-			Polymorphism    & o         & o               & - \\
-			Design Diff.    & -         & o               & + \\
-			JDEvAn          & +         & +               & + \\
-			Code-Imp        & +         & +               & + \\
-			The Spartanizer & o         & +               & + \\
-		\end{tabular}
-	\end{table}
+  \begin{table}[htb]
+    \centering
+    \caption{Comparison with respect to supported steps}
+    \label{tbl:steps}
+    \begin{tabular}{r|ccc}
+      ~               & Detection & Identification  & Execution \\ \hline
+      C to C++        & o         & o               & o \\
+      Polymorphism    & o         & o               & - \\
+      Design Diff.    & -         & o               & + \\
+      JDEvAn          & +         & +               & + \\
+      Code-Imp        & +         & +               & + \\
+      The Spartanizer & o         & +               & + \\
+    \end{tabular}
+  \end{table}
 \end{frame}
 
 \appendix
