@@ -132,6 +132,34 @@
       \item From C \texttt{struct}s
       \item From related variables
     \end{itemize}
+    \pause
+    \item Main steps
+    \begin{itemize}
+      \item Search for classes
+      \item \alert<4>{Restructuring into classes (encapsulation)}
+      \item Improving classes (inheritance, member functions)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Encapsulation}
+  \begin{itemize}
+    \item Refactoring tools:
+      \begin{itemize}
+        \item Variable insertion
+        \item Make access to a non-local variable explicit
+        \item Add a parameter
+        \item Change access specifier of a class member
+      \end{itemize}
+  \end{itemize}
+  \pause
+  \begin{itemize}
+    \item Scenario:
+      \begin{itemize}
+        \item Create data-only classes
+        \item Remove clones
+        \item Add member functions
+      \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -218,6 +246,11 @@
     \item Eclipse plugin for automatic refactoring to make code more compact
     \pause
     \item Shows that automatic refactoring can be used effectively
+  \end{itemize}
+  \pause
+  \begin{itemize}
+    \item Refactorings implemented as subclasses of class \texttt{Tipper}
+    \item Rewrite rules on specific types of AST nodes
   \end{itemize}
 \end{frame}
 
